@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <style>
+
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  overflow: auto;
+  position: relative;
+  background-color: black;
+}
+
+.section__container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+h1, h2, h4 {
+  text-align: justify;
+}
+
+h1 {
+  font-size: 2rem;
+  color: #ffffff;
+  margin-bottom: 1rem;
+}
+
+h2 {
+  font-size: 2rem;
+  color: #ffffff;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+nav {
+  position: fixed;
+  isolation: isolate;
+  width: 100%;
+  max-width: 1400px;
+  margin-inline: auto;
+  z-index: 9;
+  border-bottom: 0.5px solid rgb(255, 255, 255);
+}
+
+.nav__header {
+  padding: 1rem;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: transparent;
+}
+
+.nav__logo a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: red;
+  text-decoration: none;
+}
+
+.nav__menu__btn {
+  display: block;
+  font-size: 1.5rem;
+  color: white;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  padding: 0.5rem;
+}
+
+.nav__links {
+  position: absolute;
+  top: 65px;
+  left: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 2rem;
+  background-color: rgba(0, 0, 0, 0.748);
+  transition: 0.5s;
+  z-index: -1;
+  transform: translateY(-100%);
+}
+
+.nav__links.open {
+  transform: translateY(0);
+}
+
+.nav__links a {
+  font-size: 1.2rem;
+  color: white;
+  text-decoration: none;
+}
+
+.nav__links a:hover {
+  color: red;
+}
+
+.services__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  gap: 1.5rem;
+}
+.services__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); 
+  gap: 3rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+.service__card {
+  background-color: rgb(23, 23, 23);
+  padding: 2.5rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s ease;
+  border-top: 1px solid white;
+  border-bottom: 1px solid rgb(252, 1, 1);
+  width: 500px;
+}
+
+.service__card:hover {
+  transform: translateY(-5px);
+}
+
+.service__card h4 {
+  font-size: 1.5rem;
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+}
+
+.service__card p {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 1rem;
+}
+
+.service__card .price {
+  font-size: 1.7rem;
+  font-weight: 600;
+  color: #ff0000;
+}
+
+.section__container.about__container {
+  padding: 50px 20px;
+  background-color: rgb(23, 23, 23);
+  border-top: 5px solid red;
+}
+
+.section__subheader {
+  text-align: center;
+  font-size: 20px;
+  color: #007bff;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.section__header {
+  text-align: center;
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 40px;
+  color: #333;
+}
+
+.about__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 40px;
+  padding: 20px 0;
+  border-bottom: 1px solid #ff0505;
+}
+
+.about__row:last-child {
+  border-bottom: none;
+}
+
+.about__image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.about__content {
+  max-width: 50%;
+  padding: 20px;
+}
+
+.about__content h4 {
+  font-size: 24px;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 15px;
+}
+
+.about__content p {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #ffffff;
+  text-align: justify;
+  font-style: italic;
+}
+
+footer#contact {
+  background-color: #000000;
+}
+
+.footer__container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 4rem 2rem;
+  border-top: 1px solid #ffffff;
+  border-bottom: 1px solid #ffffff;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer__logo a {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: white;
+  text-decoration: none;
+}
+
+.footer__col h4 {
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: rgb(255, 255, 255);
+  margin: 2rem;
+}
+
+.footer__links {
+  display: grid;
+  gap: 1rem;
+}
+
+.footer__links a {
+  font-weight: 500;
+  color: red;
+}
+
+.footer__links a:hover {
+  color: rgb(255, 254, 254);
+}
+
+.footer__col p {
+  margin-bottom: 1rem;
+  color: red;
+}
+
+.footer__bar {
+  padding: 1rem;
+  font-size: 0.9rem;
+  color: white;
+  text-align: center;
+}
+
+@media (min-width: 769px) {
+  nav {
+    position: static;
+    padding: 2rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+  }
+
+  .nav__header {
+    padding: 0;
+    background-color: transparent;
+  }
+
+  .nav__menu__btn {
+    display: none;
+  }
+
+  .nav__links {
+    position: static;
+    padding: 0;
+    flex-direction: row;
+    justify-content: flex-end;
+    gap: 3rem;
+    background-color: transparent;
+    transform: none;
+    z-index: 1;
+  }
+
+  .footer__container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+.service__card {
+  background-color: rgb(23, 23, 23);
+  padding: 2.5rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s ease;
+  border-top: 1px solid white;
+  border-bottom: 1px solid rgb(252, 1, 1);
+  width: 100%; 
+  max-width: 100%; 
+}
+
+
+@media screen and (max-width: 768px) {
+  .section__container {
+    display: block;
+  }
+
+  .services__grid {
+    display: block;
+  }
+
+  .service__card {
+    margin-bottom: 20px;
+    width: 100%;
+    max-width: 500px;
+  }
+
+  .about__row {
+    flex-direction: column;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+  .about__image {
+    margin-bottom: 20px;
+  }
+
+  .about__content {
+    max-width: 100%;
+    padding: 0;
+  }
+
+  .about__content h4 {
+    font-size: 20px;
+  }
+
+  .about__content p {
+    font-size: 14px;
+  }
+
+  .section__header {
+    font-size: 28px;
+    margin-bottom: 30px;
+  }
+
+  .section__subheader {
+    font-size: 16px;
+    margin-bottom: 5px;
+  }
+}
+
+
+.text-center {
+  text-align: center;
+}
+
+.mb-4 {
+  margin-bottom: 1rem;
+}
+
+.mt-4 {
+  margin-top: 1rem;
+}
+
+.py-4 {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+.ai-btn {
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--white);
+  background: linear-gradient(90deg, #1c5c9c53, #000000b7, rgba(76, 71, 234, 0.508));
+  border: none;
+  border-radius: 20px;
+  box-shadow: 0px 5px 15px rgba(105, 120, 255, 0.3);
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-decoration: none;
+}
+
+.ai-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0px 0px 8px 5px rgba(255, 255, 255, 0.6);
+}
+
+    </style>
+    <title>Web Design Mastery | Digital</title>
+  </head>
+  <body>
+    <section>
+    <nav>
+      <div class="nav__header">
+        <div class="nav__logo">
+          <a href="index.html">
+            <span>DG Marketers</span>
+          </a>card
+        </div>
+        <div class="nav__menu__btn" id="menu-btn">
+          <i class="ri-menu-line"></i>
+        </div>
+      </div>
+      <ul class="nav__links" id="nav-links">
+        <li><a href="home.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <a href="https://cdn.botpress.cloud/webchat/v2.2/shareable.html?configUrl=https://files.bpcontent.cloud/2025/01/08/13/20250108135539-FM3UQ9RW.json" target="_blank" class="ai-btn" style="font-size:small;">
+          AI Assistance
+        </a>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href=""></a></li>
+      </ul>
+    </nav>
+    </section>
+    <section class="section__container">
+      <p><br><br><br><br><br>
+      </p>
+      <h1 style="text-align: center;">Investment in Your Growth</h1>
+      <div class="services__grid">
+        <div class="service__card">
+          <h4 style="text-align: center;">Web Development</h4>
+          <p>We deliver a fully functional, responsive, and optimized <span style="color: white; font-size: medium;">website within 15 days.</span>
+            Our streamlined process ensures high-quality results in minimal time.
+            Professional website development services to help you establish your online presence.
+          </p>
+          <p class="price">₹6,000</p>
+        </div>
+        <div class="service__card">
+          <h4 style="text-align: center;">Social Media Marketing</h4>
+          <p>Expand your reach and engage with customers through effective and tailored SMM campaigns.
+            We design and post <span style="color: white; font-size: medium;">3 engaging posts per week </span>online, tailored to your brand’s voice and goals.
+            Initial account setup and strategy take 3-4 days.
+          </p>
+          <p class="price">₹3,000</p>
+        </div>
+        <div class="service__card">
+          <h4 style="text-align: center;">Graphic Design</h4>
+          <p>Creative designs that make your brand stand out and communicate your business's values effectively.
+            Whether you need banners, social media posts, or marketing materials, our designs are tailored to reflect your brand's unique identity.
+          </p>
+          <p class="price">₹1,500</p>
+        </div>
+        <div class="service__card">
+          <h4 style="text-align: center;">Logo Design</h4>
+          <p>Unique and meaningful logo designs that perfectly represent your brand identity.
+            A unique and creative <span style="color: white; font-size: medium;">logo in just 3 days.</span>
+            Our logos go beyond aesthetics—they tell a story, embodying your business's values, mission, and purpose.
+          </p>
+          <p class="price">₹1,000</p>
+        </div>
+        <div class="service__card">
+          <h4 style="text-align: center;">Total Package <br> (Without AI)</h4>
+          <p>Get all our services bundled into one comprehensive and <span style="color: white; font-size: medium;">affordable package.</span>
+            This is our most economical offering, providing unmatched value for a complete digital marketing package.
+           <span style="color: white; font-size: medium;"> Includes all essential</span> services—web development, 
+           social media marketing, graphic design, and logo design—tailored <span style="color: white; font-size: medium;">in just 1 month</span> to meet your business needs.
+          </p>
+          <p class="price">₹10,000</p>
+        </div>
+        <div class="service__card">
+          <h4 style="text-align: center;">Total Package<br> (With AI)</h4>
+          <p>All-inclusive services with advanced AI integration, designed to elevate your digital marketing efforts.
+           <span style="color: white; font-size: medium;"> Completion in 25 days</span>, ensuring every aspect of the package, from web development to AI-driven marketing, is
+             executed with quality.  
+            <span style="color: white; font-size: medium;"> AI helps</span> create highly personalized user experiences, boosting engagement and conversions.
+          </p>
+          <p class="price">₹18,000</p>
+        </div>
+        </section>
+        <section class="section__container about__container" id="about">
+          <p class="section__subheader">Services</p>
+          <h2 class="section__header" style="color: white;">Why it is Necessary</h2>
+          <div class="about__row">
+            <div class="about__image">
+              <img src="sweb.png" alt="about" />
+            </div>
+            <div class="about__content">
+              <!-- <span><img src="digital1.png" alt="about-icon" /></span> -->
+              <h4>Web Development :</h4>
+              <p>
+                At DG Marketers, we understand that a website is more than just a digital address. It’s a tool to achieve your business
+                 goals. Here’s why we’re the perfect choice for your web development needs:
+                 Web development is not just about creating a website—it’s about creating an experience that aligns with your business 
+                 objectives and resonates with your audience. With us, you get more than just a website; you get a powerful tool to grow your
+                 business, build trust, and achieve success in the digital world.<br>
+                 Affordable Pricing
+                We offer high-quality web development services at competitive prices, ensuring exceptional value without compromising on 
+                quality. Our packages are designed to fit businesses of all sizes, from startups to established enterprises.
+              </p>
+            </div>
+          </div>
+          <div class="about__row">
+            <div class="about__image">
+              <img src="smm1.png" alt="about" />
+            </div>
+            <div class="about__content">
+              <!-- <span><img src="boy2.jpg" alt="about-icon" /></span> -->
+              <h4>Social Media Marketing (SMM):</h4>
+              <p>
+              By choosing us as your social media partner, you’re investing in your business's growth and success. Our efforts focus on   
+              creating a strong online presence, fostering customer relationships, and driving measurable outcomes. With our consistent and
+               effective social media strategies, your business can stand out in the digital landscape and achieve long-term sustainability.
+              Take the first step toward transforming your brand’s online presence. Let us help you harness the power of social media marketing
+               to connect, engage, and grow.<br>We craft tailored strategies aligned with your business goals and target audience. Whether 
+               you're looking to increase brand awareness, generate leads, or boost sales, our campaigns are designed to achieve measurable 
+               results.<br>We leverage the latest social media tools and analytics platforms to track performance, identify trends, and refine 
+               strategies. This ensures that your campaigns are always optimized for success.
+              </p>
+            </div>
+          </div>
+          <div class="about__row">
+            <div class="about__image">
+              <img src="graphic2.png" alt="about" />
+            </div>
+            <div class="about__content">
+              <!-- <span><img src="ai2.png" alt="about-icon" /></span> -->
+              <h4>Graphic Design</h4>
+              <p>
+                In today’s visually driven world, graphic design plays a pivotal role in defining how a business communicates with its 
+                audience. From the first glance at a logo to the banners, brochures, and social media posts, every element of graphic design 
+                contributes to the perception of your brand. Ignoring graphic design can leave your business looking unprofessional and failing
+                to connect with potential customers. Here’s why graphic design is essential for your business and why you should choose us
+                to handle your graphic design needs.
+              </p>
+            </div>
+          </div>
+          <div class="about__row">
+            <div class="about__image">
+              <img src="icon-logo-design-8.jpg" alt="about" />
+            </div>
+            <div class="about__content">
+              <!-- <span><img src="boy2.jpg" alt="about-icon" /></span> -->
+              <h4>Logo Design</h4>
+              <p>
+                A logo is not just an image; it is the face of your business, representing your brand’s identity, values, and mission. 
+                A well-designed logo can be the difference between being remembered or forgotten, between trust and skepticism, and between 
+                standing out or blending in with competitors. Here’s why having a professional logo is crucial for your business.
+                We don’t just create logos; we craft identities. Our team dives deep into understanding your business, target audience, and 
+                industry to design a logo that speaks to your brand’s essence. Each logo we create is unique, meaningful, and tailored to tell
+                 your story.
+              </p>
+            </div>
+          </div>
+          <div class="about__row">
+            <div class="about__image">
+              <img src="money..png" alt="about" />
+            </div>
+            <div class="about__content">
+              <!-- <span><img src="ai2.png" alt="about-icon" /></span> -->
+              <h4>Total Package (Without AI)</h4>
+              <p>
+                In the digital age, marketing your business online is no longer just an option—it’s essential. Our Total Package (Without AI) 
+                is an affordable and effective way to ensure your business thrives in the digital landscape. Priced at just ₹10,000, this
+                package provides all the necessary tools for digital marketing while being cost-effective, making it accessible to businesses
+                of all sizes.<br>Digital marketing isn’t just about promoting your products or services; it’s also about business development. 
+                A strong online presence builds trust and credibility with your customers, which is crucial for long-term growth. This package
+                 ensures your website is responsive, user-friendly, and tailored to your brand, making it a cornerstone for your business’s 
+                 success.<br>Without AI, the process is straightforward and easy to manage. We handle everything, from web development to
+                  graphic design, ensuring you get a cohesive and effective digital marketing solution. This allows you to focus on other
+                   aspects of your business while we take care of your online needs.
+              </p>
+            </div>
+          </div>
+          <div class="about__row">
+            <div class="about__image">
+              <img src="ai2.png" alt="about" />
+            </div>
+            <div class="about__content">
+              <!-- <span><img src="boy2.jpg" alt="about-icon" /></span> -->
+              <h4>Total Package (With AI)</h4>
+              <p>
+                In the modern digital era, businesses need more than just traditional digital marketing to stay ahead. Our Total Package 
+                (With AI) integrates cutting-edge artificial intelligence (AI) technology with core digital marketing strategies, making 
+                it the most efficient and advanced solution available. Priced at ₹18,000, this package is an all-inclusive investment in your 
+                business’s digital growth while still being cost-effective compared to high-end AI solutions on the market.
+                Affordable Innovation with AI<br>
+The inclusion of AI makes this package a game-changer. While AI-powered tools often come with steep costs, our Total Package (With AI) ensures
+ you get the benefits of advanced technology without overspending. For ₹18,000, you’re accessing a powerful combination of digital marketing 
+ and AI-driven features that enhance efficiency and results.<br>Streamlined Digital Marketing with AI Integration
+ AI transforms traditional digital marketing by providing deeper insights into customer behavior, automating repetitive tasks, and delivering
+  personalized experiences. Whether it’s AI-powered chatbots to engage with customers, predictive analytics to forecast trends, or automated 
+  social media posting, this package ensures your business stays ahead of the curve.<br>Boosting Business Development
+  AI doesn’t just make digital marketing smarter; it also contributes directly to business development. By leveraging AI-driven tools, your business can:
+  Optimize marketing campaigns for better ROI.
+  Enhance customer interactions with intelligent automation.
+  Identify new opportunities for growth through data analysis.
+  This advanced approach positions your business as forward-thinking and innovative, which helps build trust and attract more customers.
+              </p>
+            </div>
+          </div>
+        </section>
+    <footer id="contact">
+      <div class="section__container footer__container">
+        <div class="footer__col">
+          <div class="footer__logo">
+            <a href="index.html">DG Marketers</a>
+          </div>
+        </div>
+        <div class="footer__col">
+          <h4>Menu</h4>
+          <ul class="footer__links">
+            <li><a href="home.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="services.html">Services</a></li>
+            <a href="https://cdn.botpress.cloud/webchat/v2.2/shareable.html?configUrl=https://files.bpcontent.cloud/2025/01/08/13/20250108135539-FM3UQ9RW.json" target="_blank" class="ai-btn" style="width: 140px;">
+              AI Assistance
+            </a>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4>Address</h4>
+          <ul class="footer__links">
+            <li><a href="#">Jalgaon, India</a></li>
+            <li><a href="https://maps.google.com/maps?q=21.0191192%2C75.5777678&z=17&hl=en">View on Maps</a></li>
+          </ul>
+          <br />
+          <h4>Inquiries</h4>
+          <ul class="footer__links">
+            <li><a href="tel: +917875927562">+91 7875927562</a></li>
+             <li>
+              <a href="mailto:viveksonawane1332000@gmail.com">viveksonawane1332000@gmail.com</a> 
+            </li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4></h4>
+        </div>
+      </div>
+      <div class="footer__bar">
+        Copyright © 2024 Web Design Mastery. All rights reserved.
+      </div>
+    </footer>
+    
+
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script>
+      const menuBtn = document.getElementById("menu-btn");
+      const navLinks = document.getElementById("nav-links");
+      const menuBtnIcon = menuBtn.querySelector("i");
+
+      menuBtn.addEventListener("click", (e) => {
+        navLinks.classList.toggle("open");
+
+        const isOpen = navLinks.classList.contains("open");
+        menuBtnIcon.setAttribute(
+          "class",
+          isOpen ? "ri-close-line" : "ri-menu-line"
+        );
+      });
+
+      navLinks.addEventListener("click", (e) => {
+        navLinks.classList.remove("open");
+        menuBtnIcon.setAttribute("class", "ri-menu-line");
+      });
+      // Get all service cards
+const serviceCards = document.querySelectorAll('.service__card');
+
+// Function to add animation to a card
+function animateCard(card) {
+  card.style.opacity = '0'; // Initially hide the card
+  card.style.transform = 'translateY(20px)'; // Start with a slight upward translation
+
+  setTimeout(() => {
+    card.style.opacity = '1'; // Fade in the card
+    card.style.transform = 'translateY(0)'; // Return to original position
+  }, 200); // Delay the animation start
+}
+
+// Animate each card with a slight delay
+serviceCards.forEach((card, index) => {
+  setTimeout(() => {
+    animateCard(card);
+  }, index * 100); // Stagger the animations
+});
+
+    </script>
+  </body>
+</html>

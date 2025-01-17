@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+
+      a {
+        text-decoration: none;
+        transition: 0.3s;
+      }
+
+      ul {
+        list-style: none;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        overflow: auto;
+        position: relative;
+        background-color: black;
+      }
+      video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: -1;
+}
+
+
+      nav {
+        position: fixed;
+        isolation: isolate;
+        width: 100%;
+        max-width: 1200px;
+        margin-inline: auto;
+        z-index: 9;
+        border-bottom: 0.5px solid rgb(255, 255, 255);
+      }
+
+      .nav__header {
+        padding: 1rem;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background-color: transparent;
+      }
+
+      .nav__logo a {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: red;
+      }
+
+      .nav__logo img {
+        display: flex;
+        max-width: 36px;
+      }
+
+      .nav__logo span {
+        display: none;
+      }
+
+      .nav__menu__btn {
+        font-size: 1.5rem;
+        color: #ffffff;
+        cursor: pointer;
+        margin-right: 30px; 
+      }
+
+      .nav__links {
+        position: absolute;
+        top: 65px;
+        left: 0;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 2rem;
+        padding: 2rem;
+        background-color: rgba(0, 0, 0, 0.674);
+        transition: 0.5s;
+        z-index: -1;
+        transform: translateY(-100%);
+      }
+
+      .nav__links.open {
+        transform: translateY(0);
+      }
+
+      .nav__links a {
+        font-size: 1.2rem;
+        color: #ffffff;
+      }
+
+      .nav__links a:hover {
+        color: #f10707;
+      }
+
+      .header__container {
+        max-width: 1200px;
+        margin-inline: auto;
+        padding-block: 5rem 2rem;
+        padding-inline: 1rem;
+        display: grid;
+        gap: 2rem;
+      }
+
+      .header__image img {
+        width: 100%;
+        max-width: 500px;
+        margin-inline: auto;
+        display: flex;
+      }
+
+      .header__content {
+        overflow: hidden;
+        text-align: center;
+      }
+
+      .header__content h2 {
+        position: relative;
+        isolation: isolate;
+        max-width: fit-content;
+        margin-bottom: 1rem;
+        font-size: 1.5rem;
+        font-weight: 500;
+        color: red;
+      }
+
+      .header__content h1 {
+        font-size: 5rem;
+        font-weight: 600;
+        color: #ffffff;
+        line-height: 5rem;
+      }
+
+      .h1__span-1 {
+        font-size: 4rem;
+        color: red;
+      }
+
+      .h1__span-2 {
+        font-size: 2rem;
+        font-weight: 400;
+      }
+
+      .header__content p {
+        margin-bottom: 2rem;
+        color: var(--text-light);
+      }
+
+      .header__content .btn {
+        padding: 0.75rem 1.5rem;
+        outline: none;
+        border: none;
+        font-size: 1rem;
+        color: #ffffff;
+        background-color: red;
+        border-radius: 5rem;
+        transition: 0.3s;
+        cursor: pointer;
+      }
+
+      .header__content .btn:hover {
+        color: black;
+        background-color: white;
+      }
+
+      .socials {
+        padding-block: 2rem 4rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+      }
+
+      .socials a {
+        font-size: 1.5rem;
+        color: var(--text-light);
+      }
+
+      .socials a:hover {
+        color: var(red);
+      }
+
+      .header__bar {
+        font-size: 0.9rem;
+        color: var(--text-light);
+      }
+
+      @media (width > 768px) {
+        nav {
+          position: static;
+          padding: 2rem 1rem;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: 2rem;
+        }
+
+        .nav__header {
+          padding: 0;
+          background-color: transparent;
+        }
+
+        .nav__logo span {
+          display: flex;
+        }
+
+        .nav__menu__btn {
+          display: none;
+        }
+
+        .nav__links {
+          position: static;
+          padding: 0;
+          flex-direction: row;
+          justify-content: flex-end;
+          gap: 3rem;
+          background-color: transparent;
+          transform: none;
+        }
+
+        .nav__links a:hover {
+          color: var(red);
+        }
+
+        .header__container {
+          grid-template-columns: repeat(2, 1fr);
+          align-items: center;
+          padding-block: 2rem;
+        }
+
+        .header__image {
+          grid-area: 1/2/2/3;
+        }
+
+        .header__content {
+          text-align: left;
+        }
+
+        .socials {
+          justify-content: flex-start;
+        }
+      }
+      .ai-btn {
+  padding: 0.5rem 1rem;
+  font-size: 15px;
+  width: 140px;
+  color: #ffffff;
+  background: linear-gradient(90deg, #1c5c9c53, #000000b7, rgba(76, 71, 234, 0.508));
+  border: none;
+  border-radius: 20px;
+  box-shadow: 0px 5px 15px rgba(105, 120, 255, 0.3);
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-decoration: none;
+}
+
+
+.ai-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0px 0px 8px 5px rgba(255, 255, 255, 0.6);
+}
+
+    </style>
+    <title>Web Design Mastery | Digital</title>
+  </head>
+  <body>
+    <!-- <video autoplay muted loop>
+      <source src="video.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video> -->
+    <nav>
+      <div class="nav__header">
+        <div class="nav__logo">
+          <a href="index.html">
+            <h4>DG Marketers</h4>
+          </a>
+        </div>
+        <div class="nav__menu__btn" id="menu-btn">
+          <i class="ri-menu-line"></i>
+        </div>
+      </div>
+      <ul class="nav__links" id="nav-links">
+        <li><a href="home.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <a href="https://cdn.botpress.cloud/webchat/v2.2/shareable.html?configUrl=https://files.bpcontent.cloud/2025/01/08/13/20250108135539-FM3UQ9RW.json" target="_blank" class="ai-btn" style="font-size: 15px;">
+          AI Assistance
+        </a>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href=""></a></li>
+      </ul>
+    </nav>
+    <header class="header__container">
+      <div class="header__image">
+        <img src="main.png" alt="header" />
+      </div>
+      <div class="header__content">
+        <h2>Digital Marketing AGENCY</h2>
+        <h1>
+          Make Digital<br /><span class="h1__span-1">Business<br></span>
+          <span class="h1__span-2">with our Agency</span>
+        </h1>
+        <p style="color: white;">
+          From concept to launch, our expert team is dedicated to delivering
+          exceptional solutions tailored to your needs. Let's bring your vision
+          to life and create something extraordinary together.
+        </p>
+        <div class="header__btn">
+         <a href="learn.html"><button class="btn" style="background-color: red;">Let's Do It !</button></a>
+        </div>
+<br><br><br>
+        <div class="header__bar" style="color: white;">
+          Copyright © 2024 Web Design Mastery. All rights reserved.
+        </div>
+      </div>
+    </header>
+
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script>
+      const menuBtn = document.getElementById("menu-btn");
+      const navLinks = document.getElementById("nav-links");
+      const menuBtnIcon = menuBtn.querySelector("i");
+
+      menuBtn.addEventListener("click", (e) => {
+        navLinks.classList.toggle("open");
+
+        const isOpen = navLinks.classList.contains("open");
+        menuBtnIcon.setAttribute(
+          "class",
+          isOpen ? "ri-close-line" : "ri-menu-line"
+        );
+      });
+
+      navLinks.addEventListener("click", (e) => {
+        navLinks.classList.remove("open");
+        menuBtnIcon.setAttribute("class", "ri-menu-line");
+      });
+
+      const scrollRevealOption = {
+        distance: "50px",
+        origin: "bottom",
+        duration: 1000,
+      };
+
+      ScrollReveal().reveal(".header__image img", {
+        ...scrollRevealOption,
+        origin: "right",
+      });
+      ScrollReveal().reveal(".header__content h2", {
+        ...scrollRevealOption,
+        delay: 500,
+      });
+      ScrollReveal().reveal(".header__content h1", {
+        ...scrollRevealOption,
+        delay: 1000,
+      });
+      ScrollReveal().reveal(".header__content p", {
+        ...scrollRevealOption,
+        delay: 1500,
+      });
+      ScrollReveal().reveal(".header__content .header__btn", {
+        ...scrollRevealOption,
+        delay: 2000,
+      });
+      ScrollReveal().reveal(".header__content .socials", {
+        ...scrollRevealOption,
+        delay: 2500,
+      });
+      ScrollReveal().reveal(".header__bar", {
+        ...scrollRevealOption,
+        delay: 3000,
+      });
+    </script>
+  </body>
+</html>

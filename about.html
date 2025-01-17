@@ -1,0 +1,940 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+    .section__container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    footer#contact {
+      background-color: #000000;
+    }
+
+    .footer__container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 4rem 2rem;
+      border-top: 1px solid #ffffff;
+    }
+
+    .footer__logo a {
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: white;
+    }
+
+    .footer__col h4 {
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: red;
+    }
+
+    .footer__links {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .footer__links a {
+      font-weight: 500;
+      color: red;
+    }
+
+    .footer__links a:hover {
+      color: rgb(255, 254, 254);
+    }
+
+    .footer__col p {
+      margin-bottom: 1rem;
+      color: red;
+    }
+
+    .footer__socials {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer__socials a {
+      display: inline-block;
+      padding: 5px 8px;
+      font-size: 2.125rem;
+      color: red;
+      background-color: rgb(255, 255, 255);
+      border-radius: 100%;
+    }
+    
+
+    .footer__bar {
+      padding: 1rem;
+      font-size: 0.9rem;
+      color: white;
+      text-align: center;
+    }
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+
+      ul {
+        list-style: none;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        overflow: auto;
+        position: relative;
+        background-color: black;
+      }
+
+
+      nav {
+        position: fixed;
+        isolation: isolate;
+        width: 100%;
+        max-width: 1200px;
+        margin-inline: auto;
+        z-index: 9;
+        border-bottom: 0.5px solid rgb(255, 255, 255);
+        max-width: 1200px;
+      }
+
+      .nav__header {
+        padding: 1rem;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background-color: transparent;
+      }
+
+      .nav__logo a {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: red;
+      }
+
+      .nav__logo img {
+        display: flex;
+        max-width: 36px;
+      }
+
+      .nav__logo span {
+        display: none;
+      }
+
+      .nav__menu__btn {
+        font-size: 1.5rem;
+        color: white;
+        cursor: pointer;
+      }
+
+      .nav__links {
+        position: absolute;
+        top: 65px;
+        left: 0;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 2rem;
+        padding: 2rem;
+        background-color: rgba(0, 0, 0, 0.678);
+        transition: 0.5s;
+        z-index: -1;
+        transform: translateY(-100%);
+      }
+
+      .nav__links.open {
+        transform: translateY(0);
+      }
+
+      .nav__links a {
+        font-size: 1.2rem;
+        color: white;
+      }
+
+      .nav__links a:hover {
+        color: #f4e9e9;
+      }
+
+
+      @media (width > 768px) {
+        nav {
+          position: static;
+          padding: 2rem 1rem;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: 2rem;
+        }
+
+        .nav__header {
+          padding: 0;
+          background-color: transparent;
+        }
+
+        .nav__logo span {
+          display: flex;
+        }
+
+        .nav__menu__btn {
+          display: none;
+        }
+
+        .nav__links {
+          position: static;
+          padding: 0;
+          flex-direction: row;
+          justify-content: flex-end;
+          gap: 3rem;
+          background-color: transparent;
+          transform: none;
+        }
+
+        .nav__links a:hover {
+          color: rgb(227, 10, 10);
+        }
+
+        
+      }
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.section__container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 5rem 1rem;
+}
+
+.section__header {
+  position: relative;
+  isolation: isolate;
+  font-size: 2rem;
+  line-height: 2.75rem;
+  max-width: 400px;
+}
+
+.section__header::before {
+  position: absolute;
+  top: -3rem;
+  width: max-content;
+  font-size: 6rem;
+  font-weight: 800;
+  line-height: 6rem;
+  color: rgba(0, 0, 0, 0.05);
+  z-index: -1;
+}
+
+img {
+  display: flex;
+  width: 100%;
+}
+
+a {
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+ul {
+  list-style: none;
+}
+
+html,
+body {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+.header__btn {
+  text-align: center;
+}
+
+.header__image img {
+  max-width: 300px;
+  margin-inline: auto;
+}
+
+.about {
+  overflow: hidden;
+}
+
+.about__container {
+  display: grid;
+  gap: 2rem;
+}
+
+.about__image {
+  position: relative;
+  isolation: isolate;
+}
+
+.about__image::before {
+  position: absolute;
+  content: "";
+  top: 50%;
+  left: 50%;
+  transform: translate(-75%, -50%);
+  width: calc(100% - 5rem);
+  aspect-ratio: 1;
+  background-image: white;
+  border-radius: 100%;
+  z-index: -1;
+}
+
+.about__image img {
+  max-width: 550px;
+  margin-inline: auto;
+}
+
+.about__content .section__header::before {
+  content: "About Us";
+  color: rgb(255, 1, 1);
+  font-size: 5rem;
+}
+
+.about__content p {
+  margin-top: 1rem;
+  color: white;
+}
+
+.about__content p:nth-child(3) {
+  margin-bottom: 2rem;
+}
+
+.service {
+  background-color: white;
+  overflow: hidden;
+  border: 5px solid red;
+}
+
+.service__container .section__header {
+  color: red;
+}
+
+.service__container .section__header::before {
+  content: "Our Services";
+  color: rgba(255, 255, 255, 0.1);
+}
+
+.service__grid {
+  margin-top: 4rem;
+  display: grid;
+  gap: 2rem;
+}
+
+.service__card span {
+  font-size: 2rem;
+  font-weight: 800;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke: 1px red;
+  opacity: 0.75;
+}
+
+.service__card h4 {
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: red;
+}
+
+.service__card p {
+  color: black;
+}
+
+.service__image {
+  display: none;
+}
+
+.facility__container {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  overflow: hidden;
+}
+
+.facility__content {
+  padding: 5rem 1rem;
+}
+
+.facility__content::before {
+  position: absolute;
+  content: "";
+  background-image: white;
+  grid-area: 1/1/3/2;
+  inset: 0;
+  z-index: -1;
+}
+
+.facility__content .section__header {
+  margin-bottom: 1rem;
+  color: white;
+}
+
+.facility__content .section__header::before {
+  content: "Facilities";
+  color: rgba(255, 255, 255, 0.2);
+}
+
+.facility__content p {
+  color: white;
+}
+
+.facility__content p:not(:last-child) {
+  margin-bottom: 1rem;
+}
+
+.mentor__container {
+  overflow: hidden;
+}
+
+.mentor__container .section__header::before {
+  content: "Best Team";
+}
+
+.mentor__grid {
+  margin-top: 4rem;
+  display: grid;
+  gap: 4rem 1rem;
+}
+
+.mentor__card img {
+  margin-bottom: 1rem;
+  border-radius: 2rem;
+}
+
+.mentor__card h4 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: red;
+  text-align: center;
+}
+
+.mentor__card p {
+  font-weight: 500;
+  color: white;
+  text-align: center;
+}
+
+.banner {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  overflow: hidden;
+}
+
+.banner__content {
+  padding: 5rem 1rem;
+}
+
+.banner__content::before {
+  position: absolute;
+  content: "";
+  inset: 0;
+  grid-area: 1/1/2/4;
+  background-image: white;
+  z-index: -1;
+}
+
+.banner__content h2 {
+  margin-bottom: 1rem;
+  font-size: 5rem;
+  line-height: 6rem;
+  color: white;
+}
+
+.banner__content p {
+  font-size: 1.2rem;
+  color: white;
+}
+
+.banner__content p a {
+  text-decoration: underline;
+  color: white;
+}
+
+
+.footer__container {
+  display: grid;
+  gap: 4rem 2rem;
+}
+
+.footer__logo img {
+  margin-bottom: 2rem;
+  max-width: 250px;
+}
+
+.footer__col h4 {
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: white;
+}
+
+.footer__links {
+  display: grid;
+  gap: 1rem;
+}
+
+.footer__links :is(li, a) {
+  color: red;
+}
+
+.footer__links a:hover {
+  color: white;
+}
+
+.footer__links a span {
+  font-size: 1.2rem;
+  margin-right: 10px;
+}
+
+.footer__bar {
+  padding: 1rem;
+  font-size: 0.9rem;
+  text-align: center;
+  border-top: 1px solid white;
+}
+
+@media (width > 540px) {
+  .service__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .popular__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .mentor__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .footer__container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (width > 768px) {
+  header {
+    position: relative;
+    isolation: isolate;
+  }
+
+  header::before {
+    position: absolute;
+    content: "";
+    left: 50%;
+    bottom: 0;
+    width: 65%;
+    aspect-ratio: 1;
+    background-image: white;
+    border-radius: 100%;
+    z-index: -1;
+  }
+
+  nav {
+    position: static;
+    padding: 2rem 1rem;
+    max-width: 1200px;
+    margin-inline: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+  }
+
+  .nav__header {
+    flex: 1;
+    padding: 0;
+    background-color: transparent;
+  }
+
+  .nav__logo img {
+    max-width: 200px;
+  }
+
+  .nav__logo .logo-dark {
+    display: flex;
+  }
+
+  .nav__logo .logo-white {
+    display: none;
+  }
+
+  .nav__menu__btn {
+    display: none;
+  }
+
+  .nav__links {
+    position: static;
+    width: fit-content;
+    padding: 0;
+    flex-direction: row;
+    background-color: transparent;
+    transform: none !important;
+  }
+
+  .nav__links a {
+    color: white;
+  }
+
+  .nav__links li:last-child {
+    display: none;
+  }
+
+  .nav__btns {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .header__container {
+    padding-top: 0;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+  }
+
+  .header__container :is(h1, h2, p, .header__btn) {
+    text-align: left;
+  }
+
+  .about__container {
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+  }
+
+  .popular__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .facility__container {
+    grid-template-columns:
+      minmax(0, 1fr)
+      minmax(0, calc(1200px / 2))
+      minmax(0, calc(1200px / 2))
+      minmax(0, 1fr);
+  }
+
+  .facility__image {
+    grid-area: 1/1/2/3;
+  }
+
+  .facility__image img {
+    height: 100%;
+    object-fit: cover;
+    border-top-right-radius: 8rem;
+    border-bottom-right-radius: 8rem;
+  }
+
+  .facility__content {
+    grid-area: 1/3/2/4;
+  }
+
+  .facility__content::before {
+    grid-area: 1/2/2/5;
+  }
+
+  .mentor__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .banner {
+    grid-template-columns:
+      minmax(0, 1fr)
+      minmax(0, calc(1200px / 2))
+      minmax(0, calc(1200px / 2))
+      minmax(0, 1fr);
+  }
+
+  .banner__content {
+    grid-area: 1/2/2/3;
+  }
+
+  .banner__image {
+    grid-area: 1/3/2/5;
+  }
+
+  .banner__image img {
+    height: 100%;
+    object-fit: cover;
+    clip-path: polygon(10% 0, 100% 0, 100% 100%, 0 100%);
+  }
+
+  .footer__container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (width > 1024px) {
+  .service__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .service__image {
+    position: relative;
+    isolation: isolate;
+    display: flex;
+    height: 100%;
+    width: 100%;
+    grid-area: 1/2/3/3;
+  }
+
+  .service__image img {
+    position: absolute;
+    top: -10rem;
+  }
+
+  .popular__card {
+    padding: 1.5rem;
+  }
+
+  .facility__content {
+    padding-inline: 4rem 1rem;
+  }
+
+  .mentor__grid {
+    gap: 4rem 2rem;
+  }
+  .section__header {
+  position: relative;
+  isolation: isolate;
+  font-size: 2rem;
+  line-height: 2.75rem;
+  max-width: 400px;
+}
+
+.section__header::before {
+  position: absolute;
+  top: -3rem;
+  width: max-content;
+  font-size: 6rem;
+  font-weight: 800;
+  line-height: 6rem;
+  color: rgb(4, 4, 4);
+  z-index: -1;
+}
+}
+.ai-btn {
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: white;
+  background: linear-gradient(90deg, #1c5c9c53, #000000b7, rgba(76, 71, 234, 0.508));
+  border: none;
+  border-radius: 20px;
+  box-shadow: 0px 5px 15px rgba(105, 120, 255, 0.3);
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-decoration: none;
+}
+
+.ai-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0px 0px 8px 5px rgba(255, 255, 255, 0.6);
+}
+    </style>
+    <title>Web Design Mastery | Digital</title>
+  </head>
+  <body>
+    <nav>
+      <div class="nav__header">
+        <div class="nav__logo">
+          <a href="index.html">
+            <h4>DG Marketers</h4>
+          </a>
+        </div>
+        <div class="nav__menu__btn" id="menu-btn">
+          <i class="ri-menu-line"></i>
+        </div>
+      </div>
+      <ul class="nav__links" id="nav-links">
+        <li><a href="home.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <a href="https://cdn.botpress.cloud/webchat/v2.2/shareable.html?configUrl=https://files.bpcontent.cloud/2025/01/08/13/20250108135539-FM3UQ9RW.json" target="_blank" class="ai-btn" style="font-size:small;">
+          AI Assistance
+        </a>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="#"></a></li>
+      </ul>
+    </nav>
+    <div class="about" id="about">
+      <div class="section__container about__container">
+        <div class="about__image">
+          <img src="about4.png" alt="about" />
+        </div>
+        <div class="about__content">
+          <h2 class="section__header">.</h2>
+          <p>
+            We are a team of passionate digital professionals dedicated to crafting exceptional online experiences. We specialize in a wide 
+            range of services, including web development, digital marketing, logo design, graphic design, and more. Our focus is on delivering 
+            high-quality, innovative solutions that help businesses thrive in the digital world. We believe in building strong client 
+            relationships and exceeding expectations with every project.
+          </p>
+          <p>
+            We're not just a web design agency; we're your digital storytellers. We translate your brand's unique voice and vision into 
+            captivating online experiences. From sleek websites and eye-catching logos to impactful marketing campaigns and engaging social
+             media content, we bring your ideas to life. We're a team of creatives, strategists, and technologists who are passionate about 
+             helping businesses succeed online.
+          </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <section class="service" id="service">
+      <div class="section__container service__container">
+        <h2 class="section__header">Services We Provide</h2>
+        <div class="service__grid">
+          <div class="service__card">
+            <span>01</span>
+            <h4>website development</h4>
+            <p>
+              Increased customer engagement with visually stunning, user-friendly interfaces.
+              Scalable and secure solutions to ensure long-term success.
+            </p>
+          </div>
+          <div class="service__card">
+            <span>02</span>
+            <h4> Chatbot Development</h4>
+            <p>
+              Create AI-powered chatbots using Python frameworks like Rasa or Dialogflow.
+              Develop custom chatbot APIs for businesses to improve customer support.
+            </p>
+          </div>
+          <div class="service__card">
+            <span>03</span>
+            <h4>SMM(social media marketing)</h4>
+            <p>
+              Unlocking your brand's potential. We craft compelling social media strategies that boost visibility, engage your audience, 
+              and drive real results.
+            </p>
+          </div>
+          <div class="service__card">
+            <span>04</span>
+            <h4>Graphic Design</h4>
+            <p>
+              Attractive graphic pages for improve presentation of website.
+              Offer branding services, including logo and visual guidelines.
+            </p>
+          </div>
+          <div class="service__image">
+            <img src="boy.png" alt="service" />
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="section__container mentor__container">
+      <h2 class="section__header">Our Team</h2>
+      <div class="mentor__grid">
+        <div class="mentor__card">
+          <img src="profile.png" alt="mentor" />
+          <h4>VIVEK SONAWANE</h4>
+          <p>Web Developer</p>
+        </div>
+        <div class="mentor__card">
+          <img src="profile.png" alt="mentor" />
+          <h4>ALKAF PATEL</h4>
+          <p>SMM and Grafic Desiner</p>
+        </div>
+        <div class="mentor__card">
+          <img src="profile.png" alt="mentor" />
+          <h4>SHUBHAM PATIL</h4>
+          <p>Logo Designer</p>
+        </div>
+      </div>
+    </section>
+    <footer id="contact">
+      <div class="section__container footer__container">
+        <div class="footer__col">
+          <div class="footer__logo">
+            <a href="index.html">DG Marketers</a>
+          </div>
+        </div>
+        <div class="footer__col">
+          <h4>Menu</h4>
+          <ul class="footer__links">
+            <li><a href="home.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="services.html">Services</a></li>
+            <a href="https://cdn.botpress.cloud/webchat/v2.2/shareable.html?configUrl=https://files.bpcontent.cloud/2025/01/08/13/20250108135539-FM3UQ9RW.json" target="_blank" class="ai-btn" style="width: 140px;">
+              AI Assistance
+            </a>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4>Address</h4>
+          <ul class="footer__links">
+            <li><a href="#">Jalgaon, India</a></li>
+            <li><a href="https://maps.google.com/maps?q=21.0191192%2C75.5777678&z=17&hl=en">View on Maps</a></li>
+          </ul>
+          <br />
+          <h4>Inquiries</h4>
+          <ul class="footer__links">
+            <li><a href="tel: +917875927562">+91 7875927562</a></li>
+            <li>
+              <a href="mailto:viveksonawane1332000@gmail.com">viveksonawane1332000@gmail.com</a> 
+            </li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4></h4>
+        </div>
+      </div>
+      <div class="footer__bar">
+        Copyright © 2024 DG Marketers. All rights reserved.
+      </div>
+    </footer>
+    
+
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script>
+      const menuBtn = document.getElementById("menu-btn");
+      const navLinks = document.getElementById("nav-links");
+      const menuBtnIcon = menuBtn.querySelector("i");
+
+      menuBtn.addEventListener("click", (e) => {
+        navLinks.classList.toggle("open");
+
+        const isOpen = navLinks.classList.contains("open");
+        menuBtnIcon.setAttribute(
+          "class",
+          isOpen ? "ri-close-line" : "ri-menu-line"
+        );
+      });
+
+      navLinks.addEventListener("click", (e) => {
+        navLinks.classList.remove("open");
+        menuBtnIcon.setAttribute("class", "ri-menu-line");
+      });
+      
+
+    </script>
+  </body>
+</html>
